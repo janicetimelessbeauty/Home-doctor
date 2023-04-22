@@ -12,7 +12,9 @@ const AddMedi = () => {
     name: "",
     rating: "",
     reviews: "",
-    imgurl: ""
+    imgurl: "",
+    adults: "",
+    children: ""
   })
   const [imageURL, setImageURL] = useState("")
   const handleUpload = (e) => {
@@ -49,6 +51,14 @@ const AddMedi = () => {
     <label for="inputPassword4" class="form-label3">Rating</label>
     <input type="number" class="form-control" id="inputPassword4" onChange = {(e) => setMedi({...medi, rating: e.target.value})}/>
   </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label3">Adults</label>
+    <input type="text" class="form-control" id="inputEmail4" onChange = {(e) => setMedi({...medi, adults: e.target.value})}/>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label3">Children</label>
+    <input type="text" class="form-control" id="inputPassword4" onChange = {(e) => setMedi({...medi, children: e.target.value})}/>
+  </div>
   <div class="col-12">
     <label for="inputAddress" class="form-label1">Reviews</label>
     <textarea type="text" class="form-control" id="inputAddress" placeholder="It is good" rows = "5" onChange = {(e) => setMedi({...medi, reviews: e.target.value})}/>
@@ -80,7 +90,7 @@ const Container = styled.div`
  .form-label3 {
     position: absolute;
     left: 20%;
-    top: -35%;
+    top: -38%;
 
 }
 .g-3 {

@@ -12,7 +12,7 @@ const PORT = 5000
 app.listen(PORT, () => {
     console.log("Server starting on port 5000")
 })
-const apiKey = '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'
+const apiKey = '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'
 sgMail.setApiKey(apiKey)
 
 app.use('/fever', feverRoutes)
@@ -23,10 +23,10 @@ app.post('/checkup', async(req, res) => {
     try {
     console.log(req.body)
     const message = {
-    to: 'nancyaladaide@gmail.com',
+    to: 'nga08102004@gmail.com',
     from: {
         name: 'homedoctor',
-        email: 'nga08102004@gmail.com'
+        email: 'nancyaladaide@gmail.com'
     },
     subject: 'Checkup confirmation',
     text: `Your confirmed check up date is ${req.body.date}`,

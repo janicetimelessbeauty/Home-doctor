@@ -12,8 +12,8 @@ router.get('/', async (req, res) => {
 })
 router.post('/addMedi', async (req, res) => {
     try {
-        const {name, rating, reviews, imgurl} = req.body;
-        const newMedi = await pool.query('INSERT INTO fevermed(name, rating, reviews, imgURL) VALUES($1, $2, $3, $4) RETURNING *;', [name, rating, reviews, imgurl])
+        const {name, rating, reviews, imgurl, adults, children} = req.body;
+        const newMedi = await pool.query('INSERT INTO fevermed(name, rating, reviews, imgURL, adults, children) VALUES($1, $2, $3, $4, $5, $6) RETURNING *;', [name, rating, reviews, imgurl, adults, children])
         res.json(newMedi)
     }
     catch(err) {
