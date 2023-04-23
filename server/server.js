@@ -12,7 +12,7 @@ const PORT = 5000
 app.listen(PORT, () => {
     console.log("Server starting on port 5000")
 })
-const apiKey = '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'
+const apiKey = '******************************************'
 sgMail.setApiKey(apiKey)
 
 app.use('/fever', feverRoutes)
@@ -47,4 +47,5 @@ app.post('/checkup', async(req, res) => {
         console.log(err.message)
     }
 })
+module.exports = app
 
