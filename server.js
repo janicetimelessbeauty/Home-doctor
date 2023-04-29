@@ -1,5 +1,6 @@
 const express = require("express")
 const cors = require("cors")
+const cookieParser = require("cookie-parser")
 const feverRoutes = require("./fever")
 const diabetesRoutes = require("./diabetes")
 const userRoutes = require("./userPatient")
@@ -7,7 +8,10 @@ const dashboardRoutes = require("./dashboard")
 const sgMail = require('@sendgrid/mail')
 const app = express()
 app.use(express.json())
+app.use(express.static("./client/doctor/build"))
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
+app.use(cookieParser())
 const PORT = 5000
 app.listen(PORT, () => {
     console.log("Server starting on port 5000")

@@ -21,9 +21,9 @@ const Login = ({setAuth}) => {
         <div className="form">
             <form action="">
             <label for="exampleInputPassword1">Email</label>
-            <input type="email" name = "email" onChange = {(e) => {setSigner({...signer, [e.target.name]: e.target.value})}} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+            <input type="email" name = "email" onChange = {(e) => {setSigner({...signer, [e.target.name]: e.target.value})}} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required/>
             <label htmlFor="">Password</label>
-            <input type="password" name = "password" onChange = {(e) => {setSigner({...signer, [e.target.name]: e.target.value})}} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password"/> 
+            <input type="password" name = "password" onChange = {(e) => {setSigner({...signer, [e.target.name]: e.target.value})}} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password" required/> 
             <button type = "submit" class = "btn btn-success" onClick = {(e) => {logUser(e)}}>Login now</button>
             <div className="register"><Link to = "/register">Not login yet ? Register here</Link></div>
             <button type = "btn" class = "btn btn-danger"><Link to = "/"><div class = "letter">Not a patient ?</div></Link></button>

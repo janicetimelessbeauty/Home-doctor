@@ -35,6 +35,10 @@ router.post("/login", async(req, res) => {
       return res.status(401).json("Wrong password")
     }
     const token = jwtMake(logUser.rows[0].id)
+    res.cookie("userToken", token, {
+      httpOnly: true,
+      domain: 'localhost'
+    })
     res.json(token)
   }
   catch(err) {
