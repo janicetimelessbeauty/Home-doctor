@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:11.5
+    restart: always
+    environment: 
+      - POSTGRES_PASSWORD=Nga123456@
+      - POSTGRES_DB=fever
+      - POSTGRES_USER=postgres
+    networks:
+      - shared-network
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres-db:/var/lib/postgresql/data
+  api:
+    container_name: doctor_api
+    restart: unless-stopped
+    image: doctor-api:1.0.0
+    build:
+      context: .
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 5001:5000
+    networks: 
+      - shared-network
+    depends_on:
+      - postgres
+    command: npm run dev
+  client:
+    container_name: doctor_client
+    restart: unless-stopped
+    image: doctor-client:1.0.0
+    build:
+      context: client/doctor
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3000
+    networks: 
+      - shared-network
+    depends_on:
+      - api
+    command: npm start
+networks:
+  shared-network:
+     
+
+
+
